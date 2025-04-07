@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #144EE3;            /* Brand Primary Blue */
+  --color-accent: #EB568E;             /* Brand Accent Pink */
+  --color-background: #0B101B;         /* Main Background (Black) */
+  --color-surface: #181E29;            /* Surface (Cards, Modals) */
+  --color-light-gray: #C9CED6;         /*Light Lines */
+}
+
+:root {
+  --gradient-primary: linear-gradient(
+    to right,
+    var(--color-accent),
+    var(--color-primary)
+  );
+}
+
+body {
+  background-image: url("/Cubes.png"), url("/Swirl.png");
+  background-position: left top, center center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% auto, auto;
+  @apply min-h-screen bg-background text-white;
+}
+
+.gradient-bg {
+  @apply bg-linear-65 from-accent to-primary;
+}
+
+.gradient-text {
+  @apply bg-radial from-accent from-20% to-primary to-90%;
+}

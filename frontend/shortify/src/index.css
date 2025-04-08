@@ -29,5 +29,5 @@ body {
 }
 
 .gradient-text {
-  @apply bg-radial from-accent from-20% to-primary to-90%;
+  @apply bg-radial from-accent from-35% to-primary to-90%;
 }

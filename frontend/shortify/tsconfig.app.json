@@ -25,7 +25,8 @@
     /*custom*/
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/core/components/*"]
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"]
     }
   },
   "include": ["src"]

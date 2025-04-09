@@ -20,7 +20,7 @@ body {
   background-image: url("/Cubes.png"), url("/Swirl.png");
   background-position: left top, center center;
   background-repeat: no-repeat, no-repeat;
-  background-size: 100% auto, auto;
+  background-size: 100% auto, 100% auto;
   @apply min-h-screen bg-background text-white;
 }
 

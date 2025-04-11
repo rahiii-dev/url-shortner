@@ -1,0 +1,1 @@
+export const SHORTIFY_URL = import.meta.env.VITE_SHORTIFY_URL as string;

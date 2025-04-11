@@ -1,4 +1,5 @@
 import Button from "@components/atoms/Button";
+import clsx from "clsx";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 
@@ -19,7 +20,7 @@ const CopyButton = ({ text }: CopyButtonProps) => {
     <Button
       onClick={handleCopy}
       variant={"icon"}
-      className={copied ? "text-green-400" : undefined}
+      className={clsx("cursor-pointer", copied && "text-green-400")}
     >
       {copied ? <Check /> : <Copy />}
     </Button>

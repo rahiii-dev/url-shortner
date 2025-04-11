@@ -17,3 +17,15 @@ export function validatePassword(password: string) {
     }
     return null;
 }
+
+export function validateUrl(url: string): string | null {
+    try {
+        const parsed = new URL(url);
+        if (!["http:", "https:"].includes(parsed.protocol)) {
+            return "URL must start with http:// or https://";
+        }
+        return null;
+    } catch (err) {
+        return "Invalid URL format";
+    }
+}

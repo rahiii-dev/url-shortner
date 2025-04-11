@@ -41,7 +41,7 @@ const Index = () => {
         fetchUrls();
     }, [isAuthenticated, fetchUrls])
 
-    const handleUrlShortened = (shortenedUrl: IShortUrl) => {
+    const handleUrlShortened = useCallback((shortenedUrl: IShortUrl) => {
         if(page > 1){
             setPage(1);
             return;
@@ -52,7 +52,7 @@ const Index = () => {
         } else {
             setShortenedUrls((prev) => [shortenedUrl, ...prev.slice(0, PAGE_LIMIT - 1)]);
         }
-    }
+    }, []);
 
     const handleUrlStatusChange = useCallback(async (shortCode: string, isActive: boolean) => {
         try {

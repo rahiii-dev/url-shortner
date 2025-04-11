@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="container w-full py-3 flex items-center justify-between">
+    <nav className="container w-full py-3 flex items-center justify-between mx-auto">
       <Logo />
 
       <div className="flex gap-3 items-center">

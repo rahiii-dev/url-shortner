@@ -5,7 +5,7 @@ const Logo = () => {
   const navigate = useNavigate();
 
   return (
-    <Text variant="gradient" size="4xl" className="font-bold cursor-pointer" onClick={() => navigate("/")}>
+    <Text variant="gradient" size="4xl" className="font-bold cursor-pointer leading-tight" onClick={() => navigate("/")}>
       Shortify
     </Text>
   );

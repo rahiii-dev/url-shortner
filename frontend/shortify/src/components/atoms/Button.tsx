@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { clsx } from "clsx";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "icon";
 }
 
 function Button({
@@ -20,6 +20,7 @@ function Button({
     primary: "bg-primary text-white hover:opacity-90 disabled:border disabled-border-primary",
     outline:
       "bg-surface text-white border border-light-gray hover:bg-background",
+      icon: "rounded-full bg-surface p-2.5 hover:bg-background"
   };
 
   const merged = twMerge(clsx(baseClasses, variantClasses[variant], className));

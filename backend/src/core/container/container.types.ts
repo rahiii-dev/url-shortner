@@ -8,6 +8,11 @@ export default {
   UserController: Symbol('UserController'),
   UserRepository: Symbol('UserRepository'),
 
+  //Shortener
+  ShortenerService: Symbol('ShortenerService'),
+  ShortenerController: Symbol('ShortenerController'),
+  ShortenerRepository: Symbol('ShortenerRepository'),
+
   // external
   TokenService: Symbol('TokenService'),
 };

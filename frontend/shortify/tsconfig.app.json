@@ -28,7 +28,9 @@
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@lib/*": ["src/lib/*"],
+      "@context/*": ["src/context/*"],
+      "@services/*": ["src/services/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/types"]
 }

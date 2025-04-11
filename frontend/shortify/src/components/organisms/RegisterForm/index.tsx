@@ -2,52 +2,21 @@ import FormField from "@components/molecules/FormField";
 import Button from "@components/atoms/Button";
 import Text from "@components/atoms/Text";
 import FormFooter from "@components/molecules/FormFooter";
-import { Link } from "react-router-dom";
-import { useActionState } from "react";
-import { validateEmail, validatePassword } from "@lib/validators";
+import { Link, useNavigate } from "react-router-dom";
+import { useActionState, useEffect } from "react";
+import registerAction from "./registerAction";
 
-const registerAction = async (prevState: any, formData: FormData) => {
-  const firstName = formData.get("firstName") as string;
-  const lastName = formData.get("lastName") as string;
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
-  const confirmPassword = formData.get("confirmPassword") as string;
-
-  prevState.errors = undefined;
-  const errors: Record<string, string> = {};
-
-  if (!firstName) errors.firstName = "First name is required.";
-  if (!lastName) errors.lastName = "Last name is required.";
-
-  const emailError = validateEmail(email);
-  if (emailError) errors.email = emailError;
-
-  const passwordError = validatePassword(password);
-  if (passwordError) errors.password = passwordError;
-
-  if (!confirmPassword) {
-    errors.confirmPassword = "Please confirm your password.";
-  } else if (password !== confirmPassword) {
-    errors.confirmPassword = "Passwords do not match.";
-  }
-
-  if (Object.keys(errors).length > 0) {
-    return { 
-        errors,
-        values: { firstName, lastName, email, password, confirmPassword } 
-    };
-  }
-
-  // Simulate API call
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  // TODO: handle actual registration logic
-
-  return { success: true };
-};
 
 const RegisterForm = () => {
   const [state, formAction, isPending] = useActionState(registerAction, { success: false });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+      if (state.success) {
+          navigate("/login", {replace: true}); 
+      }
+  }, [state.success, navigate]);
 
   return (
     <form action={formAction} className="space-y-6">

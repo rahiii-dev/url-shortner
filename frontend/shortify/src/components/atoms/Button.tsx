@@ -19,7 +19,7 @@ function Button({
   const variantClasses = {
     primary: "bg-primary text-white hover:opacity-90 disabled:border disabled-border-primary",
     outline:
-      "bg-surface text-white border border-light-gray hover:bg-background",
+      "bg-surface text-white border-[1.5px] border-gray-400 hover:bg-background",
       icon: "rounded-full bg-surface p-2.5 hover:bg-background"
   };
 

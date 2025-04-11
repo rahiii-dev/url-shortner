@@ -2,43 +2,33 @@ import FormField from "@components/molecules/FormField";
 import Button from "@components/atoms/Button";
 import Text from "@components/atoms/Text";
 import FormFooter from "@components/molecules/FormFooter";
-import { Link } from "react-router-dom";
-import { useActionState } from "react";
-import { validateEmail } from "@lib/validators";
+import { Link, useNavigate } from "react-router-dom";
+import { useActionState, useEffect } from "react";
+import { useAuthContext } from "@context/AuthContext";
+import loginAction from "./loginAction";
 
-const loginAction = async (prevState: any, formData: FormData) => {
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-
-    prevState.errors = undefined;
-    const errors: { email?: string; password?: string } = {};
-
-    const emailError = validateEmail(email);
-
-    if (emailError) {
-        errors.email = emailError;
-    }
-    if (!password) {
-        errors.password = "Password is required.";
-    }
-
-    if(Object.keys(errors).length > 0){
-        return {
-            errors,
-            values: {email, password}
-        }
-    }
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    // TODO: Handle actual login logic here
-
-    return { success: true };
+const initialState = {
+    success: false,
+    user: null,
+    errors: {},
+    values: {
+        email: '',
+        password: '',
+    },
 };
 
 const LoginForm = () => {
-    const [state, formAction, isPending] = useActionState(loginAction, {success: false})
+    const [state, formAction, isPending] = useActionState(loginAction, initialState)
+
+    const { login } = useAuthContext();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (state.success && state.user) {
+            login(state.user);
+            navigate("/", { replace: true });
+        }
+    }, [state.success, state.user]);
 
     return (
         <form action={formAction} className="space-y-6">

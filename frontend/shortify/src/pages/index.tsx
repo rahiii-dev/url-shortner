@@ -3,9 +3,10 @@ import CTASection from "@components/organisms/CTASection";
 import HistoryTable from "@components/organisms/HistoryTable";
 import UrlShortener from "@components/organisms/UrlShortener";
 import HomeLayout from "@components/templates/HomeLayout";
+import { useAuthContext } from "@context/AuthContext";
 
 const Index = () => {
-    const isAuthenticated = false;
+    const {isAuthenticated} = useAuthContext();
 
     return (
         <HomeLayout>

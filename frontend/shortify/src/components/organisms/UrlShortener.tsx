@@ -24,7 +24,10 @@ const UrlShortener = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex items-center max-w-2xl h-16 mx-auto rounded-full overflow-hidden bg-surface border-2 border-gray-500 p-1 shadow-lg">
+        <form 
+            onSubmit={handleSubmit} 
+            className="flex items-center max-w-2xl h-16 mx-auto rounded-full overflow-hidden bg-surface border-2 border-gray-500 
+                    focus-within:border-primary transition-colors duration-300 ease-in-out p-1 shadow-lg">
             <div className="flex items-center px-4">
                 <Link />
             </div>
